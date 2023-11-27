@@ -2,6 +2,7 @@ export default class Component{
 
     //#region Properties
 
+    #id;
     #btn;
     #gain;
     #nbItems;
@@ -10,7 +11,8 @@ export default class Component{
     
     //#region Constructor
 
-    constructor({btn, gain = 1, nbItems = 0}){
+    constructor({id, btn, gain = 1, nbItems = 0}){
+        this.#id = id;
         this.#btn = btn;
         this.#gain = gain;
         this.#nbItems = nbItems;
@@ -38,6 +40,18 @@ export default class Component{
      */
     calculateGain(){
         return this.#nbItems * this.#gain;
+    }
+
+    /**
+     * Retourne un objet contenu les propriétés de chaque
+     * @returns {object}
+     */
+    export(){
+        return {
+            id: "",
+            gain: this.#gain,
+            nbItems: this.#nbItems,
+        };
     }
 
     //#endregion
