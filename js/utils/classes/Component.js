@@ -3,17 +3,19 @@ export default class Component{
     //#region Properties
 
     #id;
-    #btn;
     #gain;
     #nbItems;
+    #posBtn;
+    #posTxt;
 
     //#endregion
     
     //#region Constructor
 
-    constructor({id, btn, gain = 1, nbItems = 0}){
+    constructor({id, posBtn, posTxt, gain = 1, nbItems = 0}){
         this.#id = id;
-        this.#btn = btn;
+        this.#posBtn = posBtn;
+        this.#posTxt = posTxt;
         this.#gain = gain;
         this.#nbItems = nbItems;
     }
@@ -48,9 +50,11 @@ export default class Component{
      */
     export(){
         return {
-            id: "",
+            id: this.#id,
             gain: this.#gain,
             nbItems: this.#nbItems,
+            posBtn: { ...this.#posBtn },
+            posTxt: { ...this.#posTxt },
         };
     }
 
